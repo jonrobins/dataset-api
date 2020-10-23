@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 
-## Dataset Schemas <a id="dataset-types"></a>
+## Schemas <a id="dataset-types"></a>
 
 * [Football Probabilities](dataset-types/football-predictions.md)
 
