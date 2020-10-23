@@ -1,6 +1,8 @@
 # Football Probabilities
 
-#### \*\*\*\*
+This section of the documentation provides a breakdown of our coverage for football probabilities and analytical insights. Please see below the various field descriptions along with examples on how you can expect to call and see this data presented. 
+
+Using our Football API \(link to docs\) match ID, these fields can be used to compliment our football data coverage.
 
 #### **Both Teams to Score \(BTTS\)** 
 
@@ -18,7 +20,7 @@ Based on PA’s extensive historical archive of historical results for the fixtu
 
 Based on PA’s extensive historical archive of historical results for the fixture, the probabilities of various match scores in the fixture, expressed in percentage terms for each possible scoreline 
 
-## **Schema**
+## **Data Schema & Examples**
 
 {% tabs %}
 {% tab title="Example" %}
