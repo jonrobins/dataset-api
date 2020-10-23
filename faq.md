@@ -1,6 +1,6 @@
 # FAQ
 
-## How do I retrieve football probabilities for a match I have the Football API Id for?
+## How do I retrieve football probabilities for a match I have the Football API Match ID for?
 
 If you have previously integrated with the Football API, getting back the relevant dataset for that match is simple.
 
