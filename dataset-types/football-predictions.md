@@ -1,6 +1,24 @@
 # Football Probabilities
 
+#### \*\*\*\*
 
+#### **Both Teams to Score \(BTTS\)** 
+
+Based on PA’s extensive historical archive of historical results for the fixture, the probability of both teams scoring as expressed in percentage terms.  
+
+**Over 2.5 Goals**
+
+Based on PA’s extensive historical archive of historical results for the fixture, the probability of over 2.5 goals in the fixture expressed in percentage terms. 
+
+**Match result**
+
+Based on PA’s extensive historical archive of historical results for the fixture, the probabilities of various match results in the fixture, expressed in percentage terms broken down by home win, away win, or draw. 
+
+**Match Scores**
+
+Based on PA’s extensive historical archive of historical results for the fixture, the probabilities of various match scores in the fixture, expressed in percentage terms for each possible scoreline 
+
+## **Schema**
 
 {% tabs %}
 {% tab title="Example" %}
