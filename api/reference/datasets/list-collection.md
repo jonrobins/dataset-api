@@ -105,7 +105,7 @@ Full set to true
 
 ```javascript
 {
-	"total": "400",
+	"total": "1",
 	"items": [{
 		"id": "fbf025d3-0c34-4637-b5e0-231140931079",
 		"type": "sport:football:probabilities",
