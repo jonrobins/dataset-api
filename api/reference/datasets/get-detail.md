@@ -34,7 +34,8 @@ Cake successfully retrieved.
 {
     "id": "fbf025d3-0c34-4637-b5e0-231140931079",
     "type": "sport:football:probabilities",
-    "name": "Southampton vs Arsenal Match Predictions",
+    "name": "Southampton vs Arsenal Match Probabilities",
+    "timestamp": "2020-11-04T12:33:58+00:00",
     "meta": {
         "matchId": "123441",
         "competition": "Premier League 2020",
@@ -46,34 +47,87 @@ Cake successfully retrieved.
         "sport": "Football",
         "date": "2020-03-01"
     },
-    "dataset": [{
-        "name": "football:match-results",
-        "data": {
-            "home": 38.3,
-            "away": 35.8,
-            "draw": 25.9
+    "dataset": {
+      "football-match-results": {
+        "code": "football:match-results",
+		    "name": "Match Results",
+		    "data": {
+          "home": 38.3,
+          "away": 35.8,
+          "draw": 25.9
         }
-    }, {
-        "name": "football:goals-scored",
-        "data": {
-            "scoreRatio": [{
-                "home": 0,
-                "away": 0,
-                "value": 6.2
-            }]
+      },
+      "football-goals-scored": {
+        "code": "football:goals-scored",
+		    "name": "Goals Scored",
+		    "data": {
+          "scoreRatio": [{
+              "home": "0",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "1",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "2",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "3",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "4",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "5+",
+              "away": "0",
+              "value": 6.2
+           }]
         }
-    }, {
-        "name": "football:2.5-goals",
-        "data": {
+      },
+      "football-2.5-goals": {
+        "code": "football:2.5-goals",
+		    "name": "2.5 goals",
+		    "data": {
             "over": 0.1,
             "under": 54.4
         }
-    }, {
-        "name": "football:both-teams-to-score",
-        "data": {
+      },
+      "football-both-teams-to-score": {
+        "code": "football:both-teams-to-score",
+		    "name": "Both Teams to Score",
+		    "data": {
             "chance": 58.3
         }
-    }]
+      },
+      "football-key-stats": {
+        "code": "football:key-stats",
+		    "name": "Key Stats",
+		    "data": {
+          "insight": [{
+              "title": "Both teams to score: yes",
+              "statistics": [
+                  "15 of Southampton's last 20 home league matches have seen both teams score",
+                  "9 of Arsenal's last 14 away league matches have seen both teams score"
+                ]
+           },{
+              "title": "Over 2.5 Goals",
+              "statistics": [
+                  "17 of Southampton's last 25 league matches have seen over 2.5 goals scored",
+                  "4 of Arsenal's last 5 league matches have seen over 2.5 goals scored"
+                ]
+           }]
+        }
+      }
+    }
 }
 ```
 {% endapi-method-response-example %}

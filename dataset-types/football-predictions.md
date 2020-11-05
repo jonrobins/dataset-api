@@ -28,7 +28,8 @@ Based on PA’s extensive historical archive of historical results for the fixtu
 {
     "id": "fbf025d3-0c34-4637-b5e0-231140931079",
     "type": "sport:football:probabilities",
-    "name": "Southampton vs Arsenal Match Predictions",
+    "name": "Southampton vs Arsenal Match Probabilities",
+    "timestamp": "2020-11-04T12:33:58+00:00",
     "meta": {
         "matchId": "123441",
         "competition": "Premier League 2020",
@@ -40,34 +41,87 @@ Based on PA’s extensive historical archive of historical results for the fixtu
         "sport": "Football",
         "date": "2020-03-01"
     },
-    "dataset": [{
-        "name": "football:match-results",
-        "data": {
-            "home": 38.3,
-            "away": 35.8,
-            "draw": 25.9
+    "dataset": {
+      "football-match-results": {
+        "code": "football:match-results",
+		    "name": "Match Results",
+		    "data": {
+          "home": 38.3,
+          "away": 35.8,
+          "draw": 25.9
         }
-    }, {
-        "name": "football:goals-scored",
-        "data": {
-            "scoreRatio": [{
-                "home": 0,
-                "away": 0,
-                "value": 6.2
-            }]
+      },
+      "football-goals-scored": {
+        "code": "football:goals-scored",
+		    "name": "Goals Scored",
+		    "data": {
+          "scoreRatio": [{
+              "home": "0",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "1",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "2",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "3",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "4",
+              "away": "0",
+              "value": 6.2
+           },
+           {
+              "home": "5+",
+              "away": "0",
+              "value": 6.2
+           }]
         }
-    }, {
-        "name": "football:2.5-goals",
-        "data": {
+      },
+      "football-2.5-goals": {
+        "code": "football:2.5-goals",
+		    "name": "2.5 goals",
+		    "data": {
             "over": 0.1,
             "under": 54.4
         }
-    }, {
-        "name": "football:both-teams-to-score",
-        "data": {
+      },
+      "football-both-teams-to-score": {
+        "code": "football:both-teams-to-score",
+		    "name": "Both Teams to Score",
+		    "data": {
             "chance": 58.3
         }
-    }]
+      },
+      "football-key-stats": {
+        "code": "football:key-stats",
+		    "name": "Key Stats",
+		    "data": {
+          "insight": [{
+              "title": "Both teams to score: yes",
+              "statistics": [
+                  "15 of Southampton's last 20 home league matches have seen both teams score",
+                  "9 of Arsenal's last 14 away league matches have seen both teams score"
+                ]
+           },{
+              "title": "Over 2.5 Goals",
+              "statistics": [
+                  "17 of Southampton's last 25 league matches have seen over 2.5 goals scored",
+                  "4 of Arsenal's last 5 league matches have seen over 2.5 goals scored"
+                ]
+           }]
+        }
+      }
+    }
 }
 ```
 {% endtab %}
@@ -76,310 +130,258 @@ Based on PA’s extensive historical archive of historical results for the fixtu
 ```javascript
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "http://dataset.api.pamedia.io/football-predictions.json",
+    "$id": "http://dataset.pamedia.io/dataset.json",
     "type": "object",
-    "title": "The root schema",
-    "description": "The root schema comprises the entire JSON document.",
-    "required": [
-        "id",
-        "type",
-        "name",
-        "meta",
-        "dataset"
-    ],
+    "required": ["id", "type", "name", "timestamp", "meta", "dataset"],
     "properties": {
         "id": {
             "$id": "#/properties/id",
-            "type": "string",
-            "title": "The id schema",
-            "description": "An explanation about the purpose of this instance."
+            "type": "string"
         },
         "type": {
             "$id": "#/properties/type",
-            "type": "string",
-            "title": "The type schema",
-            "description": "An explanation about the purpose of this instance."
+            "type": "string"
         },
         "name": {
             "$id": "#/properties/name",
-            "type": "string",
-            "title": "The name schema",
-            "description": "An explanation about the purpose of this instance."
+            "type": "string"
+        },
+        "timestamp": {
+            "$id": "#/properties/timestamp",
+            "type": "string"
         },
         "meta": {
             "$id": "#/properties/meta",
             "type": "object",
-            "title": "The meta schema",
-            "description": "An explanation about the purpose of this instance.",
-            "required": [
-                "matchId",
-                "competition",
-                "competitonId",
-                "homeTeam",
-                "homeTeamId",
-                "awayTeam",
-                "awayTeamId",
-                "sport",
-                "date"
-            ],
+            "required": [],
             "properties": {
                 "matchId": {
                     "$id": "#/properties/meta/properties/matchId",
-                    "type": "string",
-                    "title": "The matchId schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "competition": {
                     "$id": "#/properties/meta/properties/competition",
-                    "type": "string",
-                    "title": "The competition schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "competitonId": {
                     "$id": "#/properties/meta/properties/competitonId",
-                    "type": "string",
-                    "title": "The competitonId schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "homeTeam": {
                     "$id": "#/properties/meta/properties/homeTeam",
-                    "type": "string",
-                    "title": "The homeTeam schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "homeTeamId": {
                     "$id": "#/properties/meta/properties/homeTeamId",
-                    "type": "string",
-                    "title": "The homeTeamId schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "awayTeam": {
                     "$id": "#/properties/meta/properties/awayTeam",
-                    "type": "string",
-                    "title": "The awayTeam schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "awayTeamId": {
                     "$id": "#/properties/meta/properties/awayTeamId",
-                    "type": "string",
-                    "title": "The awayTeamId schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "sport": {
                     "$id": "#/properties/meta/properties/sport",
-                    "type": "string",
-                    "title": "The sport schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 },
                 "date": {
                     "$id": "#/properties/meta/properties/date",
-                    "type": "string",
-                    "title": "The date schema",
-                    "description": "An explanation about the purpose of this instance."
+                    "type": "string"
                 }
-            }
+            }            
         },
         "dataset": {
             "$id": "#/properties/dataset",
-            "type": "array",
-            "title": "The dataset schema",
-            "description": "An explanation about the purpose of this instance.",
-            "additionalItems": true,
-            "items": [
-                {
-                    "$id": "#/properties/dataset/items/0",
+            "type": "object",
+            "required": [],
+            "properties": {
+                "football-match-results": {
+                    "$id": "#/properties/dataset/properties/football-match-results",
                     "type": "object",
-                    "title": "The first items schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "required": [
-                        "name",
-                        "data"
-                    ],
+                    "required": ["code", "name", "data"],
                     "properties": {
+                        "code": {
+                            "$id": "#/properties/dataset/properties/football-match-results/properties/code",
+                            "type": "string"
+                        },
                         "name": {
-                            "$id": "#/properties/dataset/items/0/properties/name",
-                            "type": "string",
-                            "title": "The name schema",
-                            "description": "An explanation about the purpose of this instance."
+                            "$id": "#/properties/dataset/properties/football-match-results/properties/name",
+                            "type": "string"
                         },
                         "data": {
-                            "$id": "#/properties/dataset/items/0/properties/data",
+                            "$id": "#/properties/dataset/properties/football-match-results/properties/data",
                             "type": "object",
-                            "title": "The data schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "required": [
-                                "home",
-                                "away",
-                                "draw"
-                            ],
+                            "required": ["home", "away", "draw"],
                             "properties": {
                                 "home": {
-                                    "$id": "#/properties/dataset/items/0/properties/data/properties/home",
-                                    "type": "number",
-                                    "title": "The home schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-match-results/properties/data/properties/home",
+                                    "type": "number"
                                 },
                                 "away": {
-                                    "$id": "#/properties/dataset/items/0/properties/data/properties/away",
-                                    "type": "number",
-                                    "title": "The away schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-match-results/properties/data/properties/away",
+                                    "type": "number"
                                 },
                                 "draw": {
-                                    "$id": "#/properties/dataset/items/0/properties/data/properties/draw",
-                                    "type": "number",
-                                    "title": "The draw schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-match-results/properties/data/properties/draw",
+                                    "type": "number"
                                 }
-                            }
+                            }                            
                         }
                     }
                 },
-                {
-                    "$id": "#/properties/dataset/items/1",
+                "football-goals-scored": {
+                    "$id": "#/properties/dataset/properties/football-goals-scored",
                     "type": "object",
-                    "title": "The second items schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "required": [
-                        "name",
-                        "data"
-                    ],
+                    "required": ["code", "name", "data"],
                     "properties": {
+                        "code": {
+                            "$id": "#/properties/dataset/properties/football-goals-scored/properties/code",
+                            "type": "string"
+                        },
                         "name": {
-                            "$id": "#/properties/dataset/items/1/properties/name",
-                            "type": "string",
-                            "title": "The name schema",
-                            "description": "An explanation about the purpose of this instance."
+                            "$id": "#/properties/dataset/properties/football-goals-scored/properties/name",
+                            "type": "string"
                         },
                         "data": {
-                            "$id": "#/properties/dataset/items/1/properties/data",
+                            "$id": "#/properties/dataset/properties/football-goals-scored/properties/data",
                             "type": "object",
-                            "title": "The data schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "required": [
-                                "scoreRatio"
-                            ],
+                            "required": ["scoreRatio"],
                             "properties": {
                                 "scoreRatio": {
-                                    "$id": "#/properties/dataset/items/1/properties/data/properties/scoreRatio",
+                                    "$id": "#/properties/dataset/properties/football-goals-scored/properties/data/properties/scoreRatio",
                                     "type": "array",
-                                    "title": "The scoreRatio schema",
-                                    "description": "An explanation about the purpose of this instance.",
                                     "additionalItems": true,
                                     "items": {
-                                        "$id": "#/properties/dataset/items/1/properties/data/properties/scoreRatio/items/0",
+                                        "$id": "#/properties/dataset/properties/football-goals-scored/properties/data/properties/scoreRatio/items",
                                         "type": "object",
-                                        "title": "The first items schema",
-                                        "description": "An explanation about the purpose of this instance.",
-                                        "required": [
-                                            "home",
-                                            "away",
-                                            "value"
-                                        ],
+                                        "required": ["home", "away", "value"],
                                         "properties": {
                                             "home": {
-                                                "$id": "#/properties/dataset/items/1/properties/data/properties/scoreRatio/items/0/properties/home",
-                                                "type": "integer",
-                                                "title": "The home schema",
-                                                "description": "An explanation about the purpose of this instance."
+                                                "$id": "#/properties/dataset/properties/football-goals-scored/properties/data/properties/scoreRatio/items/properties/home",
+                                                "type": "string"
                                             },
                                             "away": {
-                                                "$id": "#/properties/dataset/items/1/properties/data/properties/scoreRatio/items/0/properties/away",
-                                                "type": "integer",
-                                                "title": "The away schema",
-                                                "description": "An explanation about the purpose of this instance."
+                                                "$id": "#/properties/dataset/properties/football-goals-scored/properties/data/properties/scoreRatio/items/properties/away",
+                                                "type": "string"
                                             },
                                             "value": {
-                                                "$id": "#/properties/dataset/items/1/properties/data/properties/scoreRatio/items/0/properties/value",
-                                                "type": "number",
-                                                "title": "The value schema",
-                                                "description": "An explanation about the purpose of this instance."
+                                                "$id": "#/properties/dataset/properties/football-goals-scored/properties/data/properties/scoreRatio/items/properties/value",
+                                                "type": "number"
                                             }
-                                        }
+                                        }                                        
                                     }
                                 }
-                            }
+                            }                            
                         }
-                    }
+                    }                    
                 },
-                {
-                    "$id": "#/properties/dataset/items/2",
+                "football-2.5-goals": {
+                    "$id": "#/properties/dataset/properties/football-2.5-goals",
                     "type": "object",
-                    "title": "The third items schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "required": [
-                        "name",
-                        "data"
-                    ],
+                    "required": ["code", "name", "data"],
                     "properties": {
+                        "code": {
+                            "$id": "#/properties/dataset/properties/football-2.5-goals/properties/code",
+                            "type": "string"
+                        },
                         "name": {
-                            "$id": "#/properties/dataset/items/2/properties/name",
-                            "type": "string",
-                            "title": "The name schema",
-                            "description": "An explanation about the purpose of this instance."
+                            "$id": "#/properties/dataset/properties/football-2.5-goals/properties/name",
+                            "type": "string"
                         },
                         "data": {
-                            "$id": "#/properties/dataset/items/2/properties/data",
+                            "$id": "#/properties/dataset/properties/football-2.5-goals/properties/data",
                             "type": "object",
-                            "title": "The data schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "required": [
-                                "over",
-                                "under"
-                            ],
+                            "required": ["over", "under"],
                             "properties": {
                                 "over": {
-                                    "$id": "#/properties/dataset/items/2/properties/data/properties/over",
-                                    "type": "number",
-                                    "title": "The over schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-2.5-goals/properties/data/properties/over",
+                                    "type": "number"
                                 },
                                 "under": {
-                                    "$id": "#/properties/dataset/items/2/properties/data/properties/under",
-                                    "type": "number",
-                                    "title": "The under schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-2.5-goals/properties/data/properties/under",
+                                    "type": "number"
                                 }
                             }
                         }
-                    }
+                    }                    
                 },
-                {
-                    "$id": "#/properties/dataset/items/3",
+                "football-both-teams-to-score": {
+                    "$id": "#/properties/dataset/properties/football-both-teams-to-score",
                     "type": "object",
-                    "title": "The fourth items schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "required": [
-                        "name",
-                        "data"
-                    ],
+                    "required": ["code", "name", "data"],
                     "properties": {
+                        "code": {
+                            "$id": "#/properties/dataset/properties/football-both-teams-to-score/properties/code",
+                            "type": "string"
+                        },
                         "name": {
-                            "$id": "#/properties/dataset/items/3/properties/name",
-                            "type": "string",
-                            "title": "The name schema",
-                            "description": "An explanation about the purpose of this instance."
+                            "$id": "#/properties/dataset/properties/football-both-teams-to-score/properties/name",
+                            "type": "string"
                         },
                         "data": {
-                            "$id": "#/properties/dataset/items/3/properties/data",
+                            "$id": "#/properties/dataset/properties/football-both-teams-to-score/properties/data",
                             "type": "object",
-                            "title": "The data schema",
-                            "description": "An explanation about the purpose of this instance.",
-                            "required": [
-                                "chance"
-                            ],
+                            "required": ["chance"],
                             "properties": {
                                 "chance": {
-                                    "$id": "#/properties/dataset/items/3/properties/data/properties/chance",
-                                    "type": "number",
-                                    "title": "The chance schema",
-                                    "description": "An explanation about the purpose of this instance."
+                                    "$id": "#/properties/dataset/properties/football-both-teams-to-score/properties/data/properties/chance",
+                                    "type": "number"
                                 }
-                            }
+                            }                            
                         }
-                    }
+                    }                    
+                },
+                "football-key-stats": {
+                    "$id": "#/properties/dataset/properties/football-key-stats",
+                    "type": "object",
+                    "required": ["code", "name", "data"],
+                    "properties": {
+                        "code": {
+                            "$id": "#/properties/dataset/properties/football-key-stats/properties/code",
+                            "type": "string"
+                        },
+                        "name": {
+                            "$id": "#/properties/dataset/properties/football-key-stats/properties/name",
+                            "type": "string"
+                        },
+                        "data": {
+                            "$id": "#/properties/dataset/properties/football-key-stats/properties/data",
+                            "type": "object",
+                            "required": ["insight"],
+                            "properties": {
+                                "insight": {
+                                    "$id": "#/properties/dataset/properties/football-key-stats/properties/data/properties/insight",
+                                    "type": "array",
+                                    "additionalItems": true,
+                                    "items": {
+                                        "$id": "#/properties/dataset/properties/football-key-stats/properties/data/properties/insight/items",
+                                        "type": "object",
+                                        "required": ["title", "statistics"],
+                                        "properties": {
+                                            "title": {
+                                                "$id": "#/properties/dataset/properties/football-key-stats/properties/data/properties/insight/items/properties/title",
+                                                "type": "string"
+                                            },
+                                            "statistics": {
+                                                "$id": "#/properties/dataset/properties/football-key-stats/properties/data/properties/insight/items/properties/statistics",
+                                                "type": "array",
+                                                "additionalItems": true,
+                                                "items": {
+                                                    "$id": "#/properties/dataset/properties/football-key-stats/properties/data/properties/insight/items/properties/statistics/items",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }                                        
+                                    }
+                                }
+                            }                            
+                        }
+                    }                    
                 }
-            ]
+            }
         }
     }
 }
